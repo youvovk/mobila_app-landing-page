@@ -34,6 +34,7 @@
     }
 
     &-button__right-mobile {
+        opacity: 0;
         top: 54px;
     }
 
@@ -73,7 +74,7 @@
         }
 
         &_sixth {
-            background: #eeeeee;
+            background: #eee;
         }
 
         &_seventh {
@@ -105,6 +106,10 @@
             display: none;
         }
 
+        &-button__right-mobile {
+            opacity: 1;
+        }
+        
         &__items {
             justify-content: center;
         }

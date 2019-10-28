@@ -490,6 +490,7 @@ h1 {
     top: 50px;
     right: 150px; }
   .slider-button__right-mobile {
+    opacity: 0;
     top: 54px; }
   .slider-pagination {
     display: -webkit-box;
@@ -517,7 +518,7 @@ h1 {
     .slider-pagination_fifth {
       background: #e2e1e1; }
     .slider-pagination_sixth {
-      background: #eeeeee; }
+      background: #eee; }
     .slider-pagination_seventh {
       background: #f7f7f7; }
 
@@ -532,6 +533,8 @@ h1 {
 @media (max-width: 720px) {
   .slider-button__left, .slider-button__right {
     display: none; }
+  .slider-button__right-mobile {
+    opacity: 1; }
   .slider__items {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
