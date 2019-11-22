@@ -1,0 +1,28 @@
+.container-header {
+    width: 1060px;
+    margin: 63px 0 164px 163px;
+}
+
+.container-what-it {
+    width: 426px;
+    margin: 133px 217px 117px 0;
+}
+
+.container-started {
+    max-width: 480px;
+    padding: 217px 120px 171px 135px;
+
+    @media (max-width: 540px) {
+        padding: 0 120px 171px 100px;
+    }
+
+    
+@media (max-width: 540px) {
+    padding: 20px 20px 171px 50px;
+}
+
+}
+
+.containre-slider {
+    margin: 62px 0 44px 0;
+}
