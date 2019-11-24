@@ -44,6 +44,75 @@
     }
 }
 
+.mobile {
+    width: 254px;
+    height: 513px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    //box-shadow: -22.0416px 23.8785px 48.9814px rgba(0, 0, 0, 0.5), inset -6.73495px -19.5926px 24.4907px #FFFFFF, inset 4.89814px -2.44907px 8.57175px #C6CFDA;
+    background-image: url(../../../../images/react-mob.png);
+    background-position: center;
+    border-radius: 50px;
+
+    &-wrapper {
+        width: 85%;
+        height: 80%;
+        overflow: hidden;
+    }
+
+    &__content {
+        max-width: 220px;
+        width: 100%;
+        //position: absolute;
+        background-color: #fff;
+
+        padding: 7px;
+        font-size: 14px;
+        //right: 150px;
+    }
+}
+
+.dropdown-menu{
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+
+  .dropdown{
+    margin: 10px;
+  }
+
+  .dropdown > div{
+      height: auto;
+      max-height: 96%;
+      //margin:  0;
+      overflow-y: hidden;
+  }
+
+  .dropdown > div:hover{
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      -moz-overflow-scrolling: touch;
+      -ms-overflow-scrolling: touch;
+      -o-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+  }
+
+  .dropdown > div::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 1.5px;
+  }
+
+  .dropdown > div::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: rgba(0,0,0,0.5);
+      -webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
+  }
 // .ellipse-big {
 //     width: 100%;
 //     transform: scale(1.3);

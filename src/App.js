@@ -5,34 +5,23 @@ import Swiper from 'react-id-swiper';
 export class App extends React.Component {
   state = {}
 
-  render () {
-    const params = {
-      rebuildOnUpdate: true,
-      shouldSwiperUpdate: true,
-      slidesPerView: 3,
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',  
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      // breakpoints: {
-      //     480: {
-      //         slidesPerView: 1,
-      //         spaceBetween: 20
-      //     },
-      //     // when window width is <= 1024px
-      //     1024: {
-      //         slidesPerView: 3,
-      //         spaceBetween: 30
-      //     }
-      // },
-      containerClass: 'swiper-container promo',
+  listenScrollEvent = e => {
+    if (window.scrollY > 50) {
+      this.setState({
+        headerBack: true,
+      })
+    } else {
+      this.setState({
+        headerBack: false,
+      })
     }
+  }
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.listenScrollEvent);
+  }
+  
+  render () {
     return (
       <>
         <header className="header">
@@ -143,6 +132,30 @@ export class App extends React.Component {
           </div>
   
           <div className="started__right-mobile-wrapper" />
+          <div className="mobile">
+            <div className="mobile-wrapper dropdown">
+              <div className="mobile__content dropdown-menu">
+                  So, if you’re not a subscriber, now’s the time to make that savvy call.
+                  If that’s a step too far for you, you can still watch loads of firecracker
+                  Premier League action as long as you sign in with a free Guardian iD.+
+                  So, if you’re not a subscriber, now’s the time to make that savvy call.
+                  If that’s a step too far for you, you can still watch loads of firecracker
+                  Premier League action as long as you sign in with a free Guardian iD.+
+                  So, if you’re not a subscriber, now’s the time to make that savvy call.
+                  If that’s a step too far for you, you can still watch loads of firecracker
+                  Premier League action as long as you sign in with a free Guardian iD.+
+                  So, if you’re not a subscriber, now’s the time to make that savvy call.
+                  If that’s a step too far for you, you can still watch loads of firecracker
+                  Premier League action as long as you sign in with a free Guardian iD.+
+                  So, if you’re not a subscriber, now’s the time to make that savvy call.
+                  If that’s a step too far for you, you can still watch loads of firecracker
+                  Premier League action as long as you sign in with a free Guardian iD.+
+                  So, if you’re not a subscriber, now’s the time to make that savvy call.
+                  If that’s a step too far for you, you can still watch loads of firecracker
+                  Premier League action as long as you sign in with a free Guardian iD.+
+              </div>
+            </div>
+          </div>
         </section>
   
         <section className="features">
@@ -346,10 +359,10 @@ export class App extends React.Component {
           </div>
   
           <div className="slider__items">
-          <Swiper {...params} shouldSwiperUpdate rebuildOnUpdate>
+          {/* <Swiper {...params} shouldSwiperUpdate rebuildOnUpdate>
             <div className="wrapper"><img className="items__first-slide" src="./images/slider-first.svg" alt="" /></div>
             <div className="wrapper"><img className="items__second-slide" src="./images/slider-second.svg" alt="" /></div>
-          </Swiper>
+          </Swiper> */}
             {/* <button className="slider-button__left">
               <img src="./images/slider-button-left.svg" alt="" />
             </button>
