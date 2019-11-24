@@ -3,6 +3,8 @@
     display: flex;
     background: #f4f6f9;
 
+    overflow: hidden;
+
   &-right {
     width: 100%;
     background-image: url(../../../../images/footer_phones.svg);
@@ -69,7 +71,7 @@
   }
 
   .container-header {
-    margin: 63px 0 164px 20px;
+    margin: 63px auto 164px auto;
   }
 
   .header-left__text {

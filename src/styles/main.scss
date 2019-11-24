@@ -2,7 +2,13 @@
 @import "fonts";
 @import "typography";
 
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Lato, serif;
-  box-sizing: border-box;
+  margin: 0;
 }

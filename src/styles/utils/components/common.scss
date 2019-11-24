@@ -4,6 +4,10 @@
     line-height: 21px;
     color: #00adee;
     margin-bottom: 27px;
+
+    @media (max-width: 540px) {
+      text-align: center;
+    }
 }
 
 .section-title_h2 {
@@ -27,6 +31,10 @@
     line-height: 21px;
     color: #00adee;
 
+    @media (max-width: 540px) {
+      text-align: center;
+    }
+
     &_what-indent {
         margin-top: 22px;
     }
@@ -47,7 +55,7 @@
     }
 }
 
-@media (max-width: 430px) {   
+@media (max-width: 430px) {
     .link-on-loader__start-play {
         align-self: center;
     }

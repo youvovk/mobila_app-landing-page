@@ -57,13 +57,13 @@
 
 @media (max-width: 540px) {
     .footer {
-        padding: 50px 50px 54px;
+        padding: 42px 50px 54px;
     }
 }
 
 @media (max-width: 450px) {
     .footer {
-        padding: 20px 50px 24px;
+        padding: 42px 50px 45px;
 
         &__menu {
             flex-direction: column;
@@ -83,6 +83,6 @@
 
 @media (max-width: 390px) {
     .footer {
-        padding: 20px 20px 24px;
+        padding: 42px 20px 45px;
     }
 }
