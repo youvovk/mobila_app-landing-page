@@ -45,14 +45,16 @@
 }
 
 .mobile {
-    width: 254px;
+    min-width: 254px;
     height: 513px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-size: contain;
+    margin-right: 20px;
+
+    //background-size: contain;
     background-repeat: no-repeat;
     //box-shadow: -22.0416px 23.8785px 48.9814px rgba(0, 0, 0, 0.5), inset -6.73495px -19.5926px 24.4907px #FFFFFF, inset 4.89814px -2.44907px 8.57175px #C6CFDA;
     background-image: url(../../../../images/react-mob.png);
