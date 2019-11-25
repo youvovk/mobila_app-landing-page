@@ -1,25 +1,48 @@
 import React from 'react';
 import './App.scss';
-import Swiper from 'react-id-swiper';
+import { Swiper } from "better-react-swiper";
+
+function Slide({ src }) {
+  return (
+    <div
+      style={{
+        marginLeft: "35px", 
+        width: "100%",
+        boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
+        borderRadius: "10px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        color: "#105783"
+      }}
+    >
+      <img
+        src={src}
+        alt="slide"
+        style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
+      />
+    </div>
+  );
+}
 
 export class App extends React.Component {
-  state = {}
+  //state = {}
 
-  listenScrollEvent = e => {
-    if (window.scrollY > 50) {
-      this.setState({
-        headerBack: true,
-      })
-    } else {
-      this.setState({
-        headerBack: false,
-      })
-    }
-  }
+  // listenScrollEvent = e => {
+  //   if (window.scrollY > 50) {
+  //     this.setState({
+  //       headerBack: true,
+  //     })
+  //   } else {
+  //     this.setState({
+  //       headerBack: false,
+  //     })
+  //   }
+  // }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.listenScrollEvent);
-  }
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this.listenScrollEvent);
+  // }
   
   render () {
     return (
@@ -359,26 +382,27 @@ export class App extends React.Component {
           </div>
   
           <div className="slider__items">
+            <Swiper
+              infinity={true}
+              items={[
+                <Slide src="./images/slider-first.svg" />,
+                <Slide src="./images/slider-second.svg" />,
+                <Slide src="./images/slider-third.svg" />,
+                <Slide src="./images/slider-first.svg" />,
+                <Slide src="./images/slider-third.svg" />,
+                <Slide src="./images/slider-second.svg" />,
+                <Slide src="./images/slider-first.svg" />,
+                <Slide src="./images/slider-third.svg" />,
+                <Slide src="./images/slider-first.svg" />,
+                <Slide src="./images/slider-third.svg" />,
+                <Slide src="./images/slider-first.svg" />,
+                <Slide src="./images/slider-third.svg" />,
+              ]}
+            />
           {/* <Swiper {...params} shouldSwiperUpdate rebuildOnUpdate>
             <div className="wrapper"><img className="items__first-slide" src="./images/slider-first.svg" alt="" /></div>
             <div className="wrapper"><img className="items__second-slide" src="./images/slider-second.svg" alt="" /></div>
           </Swiper> */}
-            {/* <button className="slider-button__left">
-              <img src="./images/slider-button-left.svg" alt="" />
-            </button>
-            <button className="slider-button__right">
-              <img src="./images/slider-button-right.svg" alt="" />
-            </button>
-            <img className="items__side-slide" src="./images/slider-left.svg" alt="" />
-            <img className="items__first-slide" src="./images/slider-first.svg" alt="" />
-            <img className="items__second-slide" src="./images/slider-second.svg" alt="" />
-            <div className="items__seond-slide_wrapper">
-              <img src="./images/slider-third.svg" alt="" />
-              <button className="slider-button__right-mobile">
-                <img src="./images/slider-button-right.svg" alt="" />
-              </button>
-            </div>
-            <img className="items__side-slide" src="./images/slider-right.svg" alt="" /> */}
           </div>
   
           <div className="containre-slider slider-pagination_flex">
