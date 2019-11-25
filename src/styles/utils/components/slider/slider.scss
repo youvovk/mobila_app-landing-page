@@ -107,7 +107,7 @@
     @media (max-width: 500px) {
         top: inherit !important;
         bottom: -30px !important;
-        left: 43% !important;
+        left: 35% !important;
     }
     
     &::after {
@@ -136,7 +136,7 @@
     @media (max-width: 500px) {
         top: inherit !important;
         bottom: -30px !important;
-        right: 37% !important;
+        right: 35% !important;
     }
 
     &::after {
@@ -158,6 +158,14 @@
             top: 38%;
             left: 32%;
         }
+    }
+}
+
+.slide {
+    margin-left: 35px;
+
+    @media (max-width: 450px) {
+        margin-left: 5px;
     }
 }
 

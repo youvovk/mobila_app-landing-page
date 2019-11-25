@@ -6,8 +6,6 @@ function Slide({ src }) {
   return (
     <div
       style={{
-        marginLeft: "35px", 
-        width: "100%",
         boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
         borderRadius: "10px",
         display: "flex",
@@ -15,6 +13,8 @@ function Slide({ src }) {
         justifyContent: "flex-end",
         color: "#105783"
       }}
+
+      className="slide"
     >
       <img
         src={src}
@@ -26,7 +26,9 @@ function Slide({ src }) {
 }
 
 export class App extends React.Component {
-  //state = {}
+  state = {
+    notification: false,
+  }
 
   // listenScrollEvent = e => {
   //   if (window.scrollY > 50) {
@@ -43,8 +45,12 @@ export class App extends React.Component {
   // componentDidMount() {
   //   window.addEventListener('scroll', this.listenScrollEvent);
   // }
+
+  checkNotification = () => this.setState(({ notification }) => ({ notification: !notification }));
   
   render () {
+    const { notification } = this.state; 
+
     return (
       <>
         <header className="header">
@@ -79,27 +85,41 @@ export class App extends React.Component {
   
           <div className="header-right"></div>
         </header>
+
+        <div className="header__side-bar side-bar">
+          <div className="header__side-bar-wrapper">
+            <h1 className="side-bar__title">GET THE BEST OUT OF YOUR FOOTBALL EXPERIENCE</h1>
+            <p className="side-bar__text">Achieve super-fan status by getting tailored updates and up-to-the-minute information on your team.</p>
+            <button className="side-bar__button">Get the app</button>
+          </div>
+        </div>
   
         <section className="what-it">
           <div className="what-it__left-wrapper">
             <div className="what-it__left pictures">
               <div className="pictures__picture-first picture-first">
                 <div className="picture-first__left">
-                  <p>Sat, 12:35pm</p>
-                  <p>
-                    Arsenal v
-                    Chelsea
-                  </p>
-                  <p>Friendly Match</p>
-                </div>
-                <div className="picture-first__right">
-                  <img src="" alt="" />
-                  <img src="" alt="" />
+                  <div className="picture-first__left-text">
+                    <p className="text-day">Sat, 12:35pm</p>
+                      <p className="text-teams">
+                        Arsenal v <br />
+                        Chelsea
+                      </p>
+                    <p className="text-type">Friendly Match</p>
+                  </div>                  
+
+                  <div className="picture-first__right-teams teams">
+                    <img className="teams-logo" src="./images/arsenal.svg" alt="" />
+                    <img className="teams-logo" src="./images/chelsea.svg" alt="" />
+                  </div>
                 </div>
   
-                <div className="">
-                  <p>Turn on all match notifications</p>
-  
+                <div className="notification">
+                  <p className="notification-text">Turn on all match notifications</p>
+
+                  <div className={notification ? 'notification-cheked' : 'notification-uncheked'} onClick={this.checkNotification}>
+                    <div className={!notification ? 'notification-uncheked__circle-right' : 'notification-cheked__circle-left'}></div>
+                  </div>
                 </div>
               </div>
   
@@ -406,7 +426,7 @@ export class App extends React.Component {
           </div>
   
           <div className="containre-slider slider-pagination_flex">
-            <ul className="slider-pagination">
+            {/* <ul className="slider-pagination">
               <li className="slider-pagination__circle slider-pagination_first"></li>
               <li className="slider-pagination__circle slider-pagination_second"></li>
               <li className="slider-pagination__circle slider-pagination_third"></li>
@@ -414,7 +434,7 @@ export class App extends React.Component {
               <li className="slider-pagination__circle slider-pagination_fifth"></li>
               <li className="slider-pagination__circle slider-pagination_sixth"></li>
               <li className="slider-pagination__circle slider-pagination_seventh"></li>
-            </ul>
+            </ul> */}
           </div>
         </section>
   
