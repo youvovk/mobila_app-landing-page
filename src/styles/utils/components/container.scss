@@ -1,6 +1,21 @@
 .container-header {
     width: 1060px;
     margin: 63px 0 164px 163px;
+
+    @media (max-width: 1065px) {
+        .container-header {
+            margin: 63px 0 164px 100px;
+        }
+    }
+
+    @media (max-width: 540px) {
+        max-width: 320px;
+        margin: 33px 10px 70px 20px;
+    }
+
+    @media (max-width: 390px) {
+        max-width: 280px;
+    }
 }
 
 .container-what-it {
