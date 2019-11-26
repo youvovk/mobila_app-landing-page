@@ -2,10 +2,35 @@ import React from 'react';
 import './App.scss';
 import { Swiper } from "better-react-swiper";
 
+// function Slide({ src }) {
+//   return (
+//     <div
+//       style={{
+//         boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
+//         borderRadius: "10px",
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "flex-end",
+//         color: "#105783"
+//       }}
+
+//       className="slide"
+//     >
+//       <img
+//         src={src}
+//         alt="slide"
+//         style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
+//       />
+//     </div>
+//   );
+// }
+
 function Slide({ src }) {
   return (
     <div
       style={{
+        margin: "0 10px 20px",
+        width: "100%",
         boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
         borderRadius: "10px",
         display: "flex",
@@ -13,21 +38,19 @@ function Slide({ src }) {
         justifyContent: "flex-end",
         color: "#105783"
       }}
-
-      className="slide"
     >
       <img
-        src={src}
-        alt="slide"
-        style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
-      />
+         src={src}
+         alt="slide"
+         style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
+       />
     </div>
   );
 }
 
 export class App extends React.Component {
   state = {
-    notification: false,
+    slidesWide: 3,
   }
 
   // listenScrollEvent = e => {
@@ -42,14 +65,33 @@ export class App extends React.Component {
   //   }
   // }
 
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.listenScrollEvent);
-  // }
+  listenOnresizeEvent = e => {
+    const clientWidth = document.documentElement.clientWidth;
 
-  checkNotification = () => this.setState(({ notification }) => ({ notification: !notification }));
+    if (clientWidth <= 1300 && clientWidth > 900) {
+      this.setState({
+        slidesWide: 2,
+      });
+    } else if (clientWidth <= 900) {
+      this.setState({
+        slidesWide: 1,
+      });
+    } else {
+      this.setState({
+        slidesWide: 3,
+      });
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.listenOnresizeEvent)
+
+    this.listenOnresizeEvent();
+    //window.addEventListener('scroll', this.listenScrollEvent);
+  }
   
   render () {
-    const { notification } = this.state; 
+    const { slidesWide } = this.state; 
 
     return (
       <>
@@ -406,6 +448,7 @@ export class App extends React.Component {
             <div className="slider__items">
               <Swiper
                 infinity={true}
+                itemsWide={slidesWide}
                 items={[
                   <Slide src="./images/slider-first.svg" />,
                   <Slide src="./images/slider-second.svg" />,
