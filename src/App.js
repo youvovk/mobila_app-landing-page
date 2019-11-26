@@ -2,10 +2,36 @@ import React from 'react';
 import './App.scss';
 import { Swiper } from "better-react-swiper";
 
+function Slide({ src }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
+        borderRadius: "10px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        color: "#105783",
+      }}
+
+      className="slide"
+    >
+      <img
+        src={src}
+        alt="slide"
+        style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
+      />
+    </div>
+  );
+}
+
 // function Slide({ src }) {
 //   return (
 //     <div
 //       style={{
+//         margin: "0 10px 20px",
+//         width: "100%",
 //         boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
 //         borderRadius: "10px",
 //         display: "flex",
@@ -13,40 +39,30 @@ import { Swiper } from "better-react-swiper";
 //         justifyContent: "flex-end",
 //         color: "#105783"
 //       }}
-
-//       className="slide"
+//       className="slide-item"
 //     >
 //       <img
 //         src={src}
 //         alt="slide"
 //         style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
 //       />
+       
+
+//        <div className="slide-item__wrapper" style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}>
+//         <div className="slide-item__profile profile">
+//             <img src="./images/profile-user.svg" alt="user" />
+//             <p className="profile__user">Noah Jackson</p>
+//             <img src="./images/twitter-slide.svg" alt="twitter" />
+//         </div>
+//         <p className="slide-item__text">
+//             I use this app every day and it's a great way to keep up to date 
+//             with what's going on in football. It's a shame it won't rotate 
+//             into landscape mode like its main competitor
+//         </p>
+//        </div>
 //     </div>
 //   );
 // }
-
-function Slide({ src }) {
-  return (
-    <div
-      style={{
-        margin: "0 10px 20px",
-        width: "100%",
-        boxShadow: "0 0 6px rgba(0, 0, 0, 0.15)",
-        borderRadius: "10px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
-        color: "#105783"
-      }}
-    >
-      <img
-         src={src}
-         alt="slide"
-         style={{ width: "100%", userSelect: "none", pointerEvents: "none" }}
-       />
-    </div>
-  );
-}
 
 export class App extends React.Component {
   state = {

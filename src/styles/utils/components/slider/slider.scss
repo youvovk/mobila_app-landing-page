@@ -169,6 +169,25 @@
     }
 }
 
+.slide-item {
+    height: 161px;
+    border: 1px solid #828282;
+    border-radius: 4px;
+
+    padding: 20px 13px 24px 20px;
+
+    &__text {
+        font-size: 14px;
+        color: #4f4f4f;
+    }
+}
+
+.profile {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
 @media (max-width: 1350px) {
     .items {
         &__second-slide {
