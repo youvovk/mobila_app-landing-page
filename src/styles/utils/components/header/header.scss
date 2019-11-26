@@ -70,9 +70,9 @@
   position: relative;
 
   background-image: url(../../../../images/desktop.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
+  background-attachment: fixed;
 
   &::after {
     content: "";
@@ -83,7 +83,7 @@
     left: 0;
 
     transform: rotate(180deg);
-    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, #FFFFFF 10%, rgba(255, 255, 255, 0) 100%);
   }
 
   &-wrapper {
@@ -137,13 +137,12 @@
 
 @media (max-width: 955px) {
   .header-left__title {
-    //width: 300px;
     font-size: 30px;
   }
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 780px) {
   .header {
     display: none;
   }
