@@ -119,8 +119,8 @@ export class App extends React.Component {
                     <p className="notification-text">Turn on all match notifications</p>
 
                     <label class="form-switch">
-                      <input type="checkbox" />
-                      <i />
+                      <input type="checkbox" className="checkbox" />
+                      <i className="checkbox-item" />
                     </label>
                   </div>
                 </div>
