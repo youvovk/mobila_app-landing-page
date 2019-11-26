@@ -100,7 +100,7 @@ export class App extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.listenOnresizeEvent)
+    window.addEventListener('resize', this.listenOnresizeEvent);
 
     this.listenOnresizeEvent();
     //window.addEventListener('scroll', this.listenScrollEvent);
