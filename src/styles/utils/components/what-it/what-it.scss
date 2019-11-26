@@ -100,48 +100,79 @@
 
     color: #4f4f4f;
   }
+}
 
-  &-uncheked {
-    width: 27px;
-    height: 13px;
+.form-switch {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  i {
     position: relative;
+    display: inline-block;
+    margin-right: .5rem;
+    width: 46px;
+    height: 26px;
+    background-color: #e6e6e6;
+    border-radius: 23px;
+    vertical-align: text-bottom;
+    transition: all 0.3s linear;
 
-    background-color: #979797;
-    border-radius: 104.896px;;
-
-    &__circle-right {
-      width: 21px;
-      height: 21px;
+    &::before {
+      content: "";
       position: absolute;
+      left: 0;
+      width: 42px;
+      height: 22px;
+      background-color: #979797;
+      border-radius: 11px;
+      transform: translate3d(2px,2px,0) scale3d(1,1,1);
+      transition: all 0.25s linear;
+    }
 
-      top: -4px;
-      left: -6px;
-
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 22px;
+      height: 22px;
       background-color: #fff;
-      box-shadow: 0px 2.09791px 2.09791px rgba(0, 0, 0, 0.25);
-      border-radius: 50%;
+      border-radius: 11px;
+      box-shadow: 0 2px 2px rgba(0,0,0,0.24);
+      transform: translate3d(2px,2px,0);
+      transition: all 0.2s ease-in-out;
     }
   }
 
-  &-cheked {
-    width: 27px;
-    height: 13px;
-    position: relative;
+  &:active {
+    i::after {
+      width: 28px;
+      transform: translate3d(2px,2px,0);
+    }
 
-    background-color: #00F076;
-    border-radius: 104.896px;
+    input {
+      &:checked + i::after {
+        transform: translate3d(16px,2px,0);
+      }
+    }
+  }
 
-    &__circle-left {
-      width: 21px;
-      height: 21px;
-      position: absolute;
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 
-      top: -4px;
-      right: -6px;
+    &:checked + i {
+      background-color: #4BD763;
 
-      background-color: #fff;
-      box-shadow: 0px 2.09791px 2.09791px rgba(0, 0, 0, 0.25);
-      border-radius: 50%;
+      &::before {
+        transform: translate3d(18px,2px,0) scale3d(0,0,0);
+      }
+
+      &::after {
+        transform: translate3d(22px,2px,0);
+      }
     }
   }
 }
@@ -242,34 +273,26 @@
       &-text {
         font-size: 13px;
       }
-    
-      &-uncheked {
-        width: 19px;
-        height: 9px;
+    }
 
-        &__circle-right {
-          width: 14px;
-          height: 14px;
-  
-          top: -3px;
-          left: -3px;
+    .form-switch {    
+      i {
+        width: 37px;
+    
+        &::before {
+          width: 35px;
         }
       }
     
-      &-cheked {
-        width: 19px;
-        height: 9px;
-    
-        &__circle-left {
-          width: 14px;
-          height: 14px;
-          position: absolute;
-    
-          top: -3px;
-          right: -3px;
+      &:active {
+        input {
+          &:checked + i::after {
+            transform: translate3d(16px,2px,0);
+          }
         }
       }
     }
+    
 
     .text {
       &-day,

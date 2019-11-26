@@ -118,9 +118,10 @@ export class App extends React.Component {
                   <div className="notification">
                     <p className="notification-text">Turn on all match notifications</p>
 
-                    <div className={notification ? 'notification-cheked' : 'notification-uncheked'} onClick={this.checkNotification}>
-                      <div className={!notification ? 'notification-uncheked__circle-right' : 'notification-cheked__circle-left'}></div>
-                    </div>
+                    <label class="form-switch">
+                      <input type="checkbox" />
+                      <i />
+                    </label>
                   </div>
                 </div>
     
