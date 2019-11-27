@@ -1,9 +1,15 @@
 .features {
     display: flex;
     flex-direction: column;
+
+    position: relative;
+    z-index: 3;
+
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: right;
     background-image: url(../../../../images/blue-features.svg);
+
     padding: 76px 135px 66px;
 
     &__columns {

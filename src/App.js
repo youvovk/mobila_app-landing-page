@@ -67,19 +67,31 @@ function Slide({ src }) {
 export class App extends React.Component {
   state = {
     slidesWide: 3,
+    startedFixed: false,
+    time: {
+      hours: '00',
+      minutes: '00',
+    }
   }
 
-  // listenScrollEvent = e => {
-  //   if (window.scrollY > 50) {
-  //     this.setState({
-  //       headerBack: true,
-  //     })
-  //   } else {
-  //     this.setState({
-  //       headerBack: false,
-  //     })
-  //   }
-  // }
+  listenScrollEvent = e => {
+    if (window.scrollY > 1363 && window.scrollY < 2079) {
+      this.setState({
+        startedFixed: true,
+      });
+
+      // document.querySelector('html').classList.add('hidden');
+      // document.querySelector('body').classList.add('hidden');
+
+
+      // document.getElementById('mobile').addEventListener('scroll', function(){
+      //   console.log('Позиция скрола у элемента: '+ this.scrollTop)
+      // });
+
+      // let scroll = document.getElementById('mobile');
+      // scroll.dispatchEvent(new Event('scroll'));
+    }
+  }
 
   listenOnresizeEvent = e => {
     const clientWidth = document.documentElement.clientWidth;
@@ -98,16 +110,46 @@ export class App extends React.Component {
       });
     }
   }
+ 
+  timerStart = () => {
+      let date = new Date();
+
+      const startTime = () => {
+          date.setTime(Date.now());
+      
+          this.setState({
+              time: {
+                  hours: date.getHours(),
+                  minutes: date.getMinutes(),
+              }
+          });
+          requestAnimationFrame(startTime);
+        }
+        requestAnimationFrame(startTime);
+  }
 
   componentDidMount() {
     window.addEventListener('resize', this.listenOnresizeEvent);
+    window.addEventListener('scroll', this.listenScrollEvent);
 
     this.listenOnresizeEvent();
-    //window.addEventListener('scroll', this.listenScrollEvent);
+
+    let intervalId = setInterval(this.timerStart, 1000);
+    this.setState({intervalId: intervalId});
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
   }
   
   render () {
-    const { slidesWide } = this.state; 
+    const { 
+      slidesWide, 
+      time: {
+        hours,
+        minutes,
+      } 
+    } = this.state; 
 
     return (
       <>
@@ -176,7 +218,7 @@ export class App extends React.Component {
                   <div className="notification">
                     <p className="notification-text">Turn on all match notifications</p>
 
-                    <label class="form-switch">
+                    <label className="form-switch">
                       <input type="checkbox" className="checkbox" />
                       <i className="checkbox-item" />
                     </label>
@@ -235,29 +277,80 @@ export class App extends React.Component {
             </div>
     
             <div className="started__right-mobile-wrapper" />
-            <div className="mobile">
-              <div className="mobile-wrapper dropdown">
-                <div className="mobile__content dropdown-menu">
-                    So, if you’re not a subscriber, now’s the time to make that savvy call.
-                    If that’s a step too far for you, you can still watch loads of firecracker
-                    Premier League action as long as you sign in with a free Guardian iD.+
-                    So, if you’re not a subscriber, now’s the time to make that savvy call.
-                    If that’s a step too far for you, you can still watch loads of firecracker
-                    Premier League action as long as you sign in with a free Guardian iD.+
-                    So, if you’re not a subscriber, now’s the time to make that savvy call.
-                    If that’s a step too far for you, you can still watch loads of firecracker
-                    Premier League action as long as you sign in with a free Guardian iD.+
-                    So, if you’re not a subscriber, now’s the time to make that savvy call.
-                    If that’s a step too far for you, you can still watch loads of firecracker
-                    Premier League action as long as you sign in with a free Guardian iD.+
-                    So, if you’re not a subscriber, now’s the time to make that savvy call.
-                    If that’s a step too far for you, you can still watch loads of firecracker
-                    Premier League action as long as you sign in with a free Guardian iD.+
-                    So, if you’re not a subscriber, now’s the time to make that savvy call.
-                    If that’s a step too far for you, you can still watch loads of firecracker
-                    Premier League action as long as you sign in with a free Guardian iD.+
+            
+            <div className="mobile-wrapper">
+              <div className="mobile">
+                <div className="mobile-wrapper-wrapper__content dropdown">
+                  <div className="mobile-wrapper__content dropdown-menu">
+                    <header className="mobile__menu-header">
+                      <p className="mobile-batery">23%</p>
+                      <p className="mobile-time">{`${hours}:${minutes}`}</p>
+                    </header>
+
+                    <div className="teams-vs">
+                      <div className="team-wrapper">
+                        <img src="./images/arsenal.svg" alt="" className="team-img" />
+                        <p>Arsenal</p>
+                        <p className="text-10px">A Gibay(21)</p>
+                      </div>
+                      
+                      <div className="score-wrapper">
+                        <p>1 - 1</p>
+                        <p>FT</p>
+                      </div>
+
+                      <div className="team-wrapper">
+                        <img src="./images/chelsea.svg" alt="" className="team-img" />
+                        <p>Chelsea</p>
+                        <p className="text-10px">M Salah(45+1)</p>
+                      </div>
+                    </div>
+
+                    <nav className="dropdown">
+                      <ul className="mobile__menu-main">
+                        <li className="mobile__menu-item">LINEUPS</li>
+                        <li className="mobile__menu-item">COMMENTARY</li>
+                        <li className="mobile__menu-item">REPORT</li>
+                        <li className="mobile__menu-item">MATCH STATS</li>
+                      </ul>
+                    </nav>
+                    
+
+                    <main className="mobile-main">
+                       <h2 className="mobile__main-text">Salah scores  as Liverpool draw</h2>
+                       <p className="updates">Last Updates 27/11/19 15:33pm</p>
+                       
+                    </main>
+
+                    <img src="./images/video.svg" alt="" className="mobile__img" />
+
+                    <main className="mobile-main">
+                      <p className="text-12px">
+                        The in-game goal clips from every Premier League match are available to 
+                        Guardian TV customers with a Guardian subscription.
+                      </p>
+                      <p className="text-12px">
+                        So, if you’re not a subscriber, now’s the time to make that savvy call. 
+                        If that’s a step too far for you, you can still watch loads of firecracker 
+                        Premier League action as long as you sign in with a free Guardian iD.
+                        The Guardian Live Scores app is your go to app for live scores and 
+                        watching Premier League goals… Get in there, what a result!
+                      </p>
+                      <p className="text-12px">
+                        As well as videos of all the goals, you can watch match highlights, 
+                        check out the latest scores and results and stay bang-up-to-date with 
+                        the big football stories from The Guardian publication.
+                      </p>
+                    </main>
+                  </div>
                 </div>
               </div>
+              <div className="mobile-wrapper-circle__2" />
+              <div className="mobile-wrapper-circle__3" />
+              <div className="mobile-wrapper-circle__4" />
+              <div className="mobile-wrapper-circle__5" />
+              <div className="mobile-wrapper-circle__6" />
+              <div className="mobile-wrapper-circle__7" />
             </div>
           </section>
     

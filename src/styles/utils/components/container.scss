@@ -48,6 +48,9 @@
     margin-left: 162px;
     margin-right: 70px;
 
+    position: relative;
+    z-index: 3;
+
     @media (max-width: 1065px) {
       margin-left: 102px;
     }

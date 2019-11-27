@@ -3,6 +3,9 @@
     display: flex;
     background: #f4f6f9;
 
+    position: relative;
+    z-index: 3;
+
     overflow: hidden;
 
     @media (max-width: 540px) {
