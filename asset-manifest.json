@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mobila_app-landing-page/static/css/main.f7f61ce9.chunk.css",
+    "main.js": "/mobila_app-landing-page/static/js/main.4dd1e1a0.chunk.js",
+    "main.js.map": "/mobila_app-landing-page/static/js/main.4dd1e1a0.chunk.js.map",
+    "runtime-main.js": "/mobila_app-landing-page/static/js/runtime-main.df478235.js",
+    "runtime-main.js.map": "/mobila_app-landing-page/static/js/runtime-main.df478235.js.map",
+    "static/js/2.2d8a1092.chunk.js": "/mobila_app-landing-page/static/js/2.2d8a1092.chunk.js",
+    "static/js/2.2d8a1092.chunk.js.map": "/mobila_app-landing-page/static/js/2.2d8a1092.chunk.js.map",
+    "index.html": "/mobila_app-landing-page/index.html",
+    "precache-manifest.332b8e3c7500de412447a63d9ab986df.js": "/mobila_app-landing-page/precache-manifest.332b8e3c7500de412447a63d9ab986df.js",
+    "service-worker.js": "/mobila_app-landing-page/service-worker.js",
+    "static/css/main.f7f61ce9.chunk.css.map": "/mobila_app-landing-page/static/css/main.f7f61ce9.chunk.css.map",
+    "static/media/index.scss": "/mobila_app-landing-page/static/media/what.98e53229.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df478235.js",
+    "static/js/2.2d8a1092.chunk.js",
+    "static/css/main.f7f61ce9.chunk.css",
+    "static/js/main.4dd1e1a0.chunk.js"
+  ]
+}
