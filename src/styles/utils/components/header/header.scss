@@ -46,6 +46,10 @@
     width: 100%;
     max-width: 540px;
 
+    @media (max-width: 540px) {
+      text-align: center;
+    }
+
     &__title {
       margin-bottom: 30px;
       font-weight: bold;

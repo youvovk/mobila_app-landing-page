@@ -52,17 +52,18 @@
     z-index: 3;
 
     @media (max-width: 1065px) {
-      margin-left: 102px;
+        margin-right: 0;
     }
 
-    @media (max-width: 900px) {
-      max-width: 400px;
-    }
-
-    @media (max-width: 540px) {
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-top: 46px;
+    @media (max-width: 850px) {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #fff;
+        position: relative;
+        z-index: 4;
+        overflow: hidden;
     }
 }
 

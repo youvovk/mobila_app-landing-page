@@ -70,29 +70,10 @@ export class App extends React.Component {
     startedFixed: false,
     time: {
       hours: '00',
-      minutes: '00',
+      minutes: '0',
     },
     batery: 100,
     volume: false,
-  }
-
-  listenScrollEvent = e => {
-    if (window.scrollY > 1363 && window.scrollY < 2079) {
-      this.setState({
-        startedFixed: true,
-      });
-
-      // document.querySelector('html').classList.add('hidden');
-      // document.querySelector('body').classList.add('hidden');
-
-
-      // document.getElementById('mobile').addEventListener('scroll', function(){
-      //   console.log('Позиция скрола у элемента: '+ this.scrollTop)
-      // });
-
-      // let scroll = document.getElementById('mobile');
-      // scroll.dispatchEvent(new Event('scroll'));
-    }
   }
 
   listenOnresizeEvent = e => {
@@ -114,34 +95,35 @@ export class App extends React.Component {
   }
  
   timerStart = () => {
-      let date = new Date();
+    let date = new Date();
 
-      const startTime = () => {
-          date.setTime(Date.now());
-      
-          this.setState({
-              time: {
-                  hours: date.getHours(),
-                  minutes: date.getMinutes(),
-              }
-          });
-          requestAnimationFrame(startTime);
+    date.setTime(Date.now());
+
+    this.setState({
+        time: {
+            hours: date.getHours(),
+            minutes: date.getMinutes(),
         }
-        requestAnimationFrame(startTime);
+    });
   }
 
-  mountBatery = () => this.setState(({ batery }) => ({batery: batery - 1}));
+  mountBatery = () => {
+    if (this.state.batery >= 0) {
+      this.setState(({ batery }) => ({batery: batery - 4}))
+    }
+  };
 
   toggleVolume = () => this.setState(({ volume }) => ({volume: !volume}));
 
   componentDidMount() {
     window.addEventListener('resize', this.listenOnresizeEvent);
-    window.addEventListener('scroll', this.listenScrollEvent);
 
     this.listenOnresizeEvent();
+    this.timerStart();
 
     let intervalId = setInterval(this.timerStart, 1000);
-    let intervakBatery = setInterval(this.mountBatery, 2000);
+    let intervakBatery = setInterval(this.mountBatery, 3000);
+
     this.setState({
       intervalId: intervalId,
       intervakBatery: intervakBatery,
@@ -164,14 +146,14 @@ export class App extends React.Component {
       volume,
     } = this.state; 
 
-    const bateryLowControl = batery <= 0 ? 0 : batery;
+    let bateryLowControl = batery <= 0 ? 0 : batery;
     let bateryColor = 'mobile-batery';
 
     if (bateryLowControl <= 20) {
       bateryColor = 'mobile-batery mobile-batery_red';
     } else if (bateryLowControl <= 50) {
       bateryColor = 'mobile-batery mobile-batery_orange';
-    };
+    }
 
     return (
       <>
@@ -192,14 +174,21 @@ export class App extends React.Component {
                   Achieve super-fan status by getting tailored updates and up-to-the-minute information on your team.
                 </p>
                 <div className="link-on-loader link-on-loader__header-mobile">
-                  <a href="#">
+                  <a 
+                    href="https://www.apple.com/retail"
+                  >
                     <img
                       className="link-on-loader__apple link-on-loader__apple-mobile"
                       src="./images/Apple Store.svg"
                       alt=""
                     />
                   </a>
-                  <a href="#">
+                  <a href="https://play.google.com/store?utm_source=emea_Med&utm_medium=hasem&utm
+                      _content=071614&utm_campaign=Evergreen&pcampaignid=MKT-EG-emea-ua-all-Med-
+                      hasem-py-Evergreen-071614-1%7CONSEM_kwid_43700007031591577&gclid=Cj0KCQiAo
+                      IPvBRDgARIsAHsCw08YpOCIVUMU8GRrr6Xa_JBdHgtEssWVPqFKVLrJnZpELJydmtyGbdUaAnH
+                      3EALw_wcB&gclsrc=aw.ds"
+                  >
                     <img src="./images/Google Play.svg" alt="" />
                   </a>
                 </div>
@@ -247,7 +236,15 @@ export class App extends React.Component {
                   </div>
                 </div>
     
-                <div className="pictures__picture-second" />
+                <iframe 
+                  width="360" 
+                  height="218" 
+                  src="https://www.youtube.com/embed/RhkyXMm9u4Q" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen 
+                  className="pictures__picture-second"
+                />
               </div>
             </div>
     
@@ -297,8 +294,6 @@ export class App extends React.Component {
                 </a>
               </div>
             </div>
-    
-            <div className="started__right-mobile-wrapper" />
             
             <div className="mobile-wrapper">
               <div className="mobile">
@@ -320,6 +315,8 @@ export class App extends React.Component {
                       <p className="mobile-time">{minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`}</p>
                     </header>
 
+                    <img src="./images/star.svg" alt="star" className="mobile-star" />
+
                     <div className="teams-vs">
                       <div className="team-wrapper">
                         <img src="./images/arsenal.svg" alt="" className="team-img" />
@@ -327,9 +324,9 @@ export class App extends React.Component {
                         <p className="text-10px">A Gibay(21)</p>
                       </div>
                       
-                      <div className="score-wrapper">
+                      <div className="score-wrapper score">
                         <p>1 - 1</p>
-                        <p>FT</p>
+                        <p className="score_ft">FT</p>
                       </div>
 
                       <div className="team-wrapper">
@@ -355,7 +352,15 @@ export class App extends React.Component {
                        
                     </main>
 
-                    <img src="./images/video.svg" alt="" className="mobile__img" />
+                    <iframe 
+                      width="360" 
+                      height="218" 
+                      src="https://www.youtube.com/embed/RhkyXMm9u4Q" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen 
+                      className="mobile__img"
+                    />
 
                     <main className="mobile-main">
                       <p className="text-12px">
@@ -378,7 +383,9 @@ export class App extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="mobile-wrapper-circle__2" />
+              <div className="mobile-wrapper-circle__2">
+                <div className="mobile-wrapper-circle__2_1" />
+              </div>
               <div className="mobile-wrapper-circle__3" />
               <div className="mobile-wrapper-circle__4" />
               <div className="mobile-wrapper-circle__5" />
@@ -661,12 +668,23 @@ export class App extends React.Component {
                 football fan by downloading the Football Score Centre now. It’s got all this:
               </p>
               <div className="link-on-loader link-on-loader__start-play">
-                <a href="#">
-                  <img className="link-on-loader__apple" src="./images/Apple Store.svg" alt="" />
+                <a 
+                  href="https://www.apple.com/retail"
+                >
+                  <img
+                    className="link-on-loader__apple link-on-loader__apple-mobile"
+                    src="./images/Apple Store.svg"
+                    alt=""
+                  />
                 </a>
-                <a href="#">
-                  <img src="./images/Google Play.svg" alt="" />
-                </a>
+                <a href="https://play.google.com/store?utm_source=emea_Med&utm_medium=hasem&utm
+                    _content=071614&utm_campaign=Evergreen&pcampaignid=MKT-EG-emea-ua-all-Med-
+                    hasem-py-Evergreen-071614-1%7CONSEM_kwid_43700007031591577&gclid=Cj0KCQiAo
+                    IPvBRDgARIsAHsCw08YpOCIVUMU8GRrr6Xa_JBdHgtEssWVPqFKVLrJnZpELJydmtyGbdUaAnH
+                    3EALw_wcB&gclsrc=aw.ds"
+                  >
+                    <img src="./images/Google Play.svg" alt="" />
+                  </a>
               </div>
             </div>
           </section>
@@ -701,13 +719,13 @@ export class App extends React.Component {
           </ul>
   
           <div className="messengers">
-            <a href="#">
+            <a href="https://twitter.com">
               <img src="./images/twitter.svg" alt="" />
             </a>
-            <a href="#">
+            <a href="https://www.facebook.com/">
               <img src="./images/facebook.svg" alt="" />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com">
               <img src="./images/insta.svg" alt="" />
             </a>
           </div>

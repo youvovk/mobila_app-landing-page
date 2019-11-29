@@ -32,9 +32,11 @@
     font-size: 16px;
     line-height: 21px;
     color: #00adee;
+    border-bottom: 2px solid #fff;
 
     @media (max-width: 540px) {
       text-align: center;
+      width: 100%;
     }
 
     &_what-indent {
