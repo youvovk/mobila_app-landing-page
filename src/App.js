@@ -71,7 +71,9 @@ export class App extends React.Component {
     time: {
       hours: '00',
       minutes: '00',
-    }
+    },
+    batery: 100,
+    volume: false,
   }
 
   listenScrollEvent = e => {
@@ -128,6 +130,10 @@ export class App extends React.Component {
         requestAnimationFrame(startTime);
   }
 
+  mountBatery = () => this.setState(({ batery }) => ({batery: batery - 1}));
+
+  toggleVolume = () => this.setState(({ volume }) => ({volume: !volume}));
+
   componentDidMount() {
     window.addEventListener('resize', this.listenOnresizeEvent);
     window.addEventListener('scroll', this.listenScrollEvent);
@@ -135,12 +141,17 @@ export class App extends React.Component {
     this.listenOnresizeEvent();
 
     let intervalId = setInterval(this.timerStart, 1000);
-    this.setState({intervalId: intervalId});
+    let intervakBatery = setInterval(this.mountBatery, 2000);
+    this.setState({
+      intervalId: intervalId,
+      intervakBatery: intervakBatery,
+    });
   }
 
   componentWillUnmount() {
     clearInterval(this.state.intervalId);
-  }
+    clearInterval(this.state.intervakBatery);
+  }  
   
   render () {
     const { 
@@ -148,8 +159,19 @@ export class App extends React.Component {
       time: {
         hours,
         minutes,
-      } 
+      },
+      batery, 
+      volume,
     } = this.state; 
+
+    const bateryLowControl = batery <= 0 ? 0 : batery;
+    let bateryColor = 'mobile-batery';
+
+    if (bateryLowControl <= 20) {
+      bateryColor = 'mobile-batery mobile-batery_red';
+    } else if (bateryLowControl <= 50) {
+      bateryColor = 'mobile-batery mobile-batery_orange';
+    };
 
     return (
       <>
@@ -283,8 +305,19 @@ export class App extends React.Component {
                 <div className="mobile-wrapper-wrapper__content dropdown">
                   <div className="mobile-wrapper__content dropdown-menu">
                     <header className="mobile__menu-header">
-                      <p className="mobile-batery">23%</p>
-                      <p className="mobile-time">{`${hours}:${minutes}`}</p>
+                      <img 
+                        src={volume ? './images/mute-on.png' : './images/mute-off.svg'} 
+                        alt="volume" 
+                        className={volume 
+                          ? 'mobile-phone mobile-icon' 
+                          : 'mobile-phone mobile-phone_off' 
+                        } 
+                        onClick={this.toggleVolume} 
+                      />
+                      <img src="./images/4g.svg" alt="4g internet" className="mobile-icon" />
+                      <img src="./images/network.svg" alt="4g internet" className="mobile-icon" />
+                      <p className={bateryColor}>{bateryLowControl}%</p>
+                      <p className="mobile-time">{minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`}</p>
                     </header>
 
                     <div className="teams-vs">

@@ -448,11 +448,36 @@
     padding-right: 5px;
 }
 
+.mobile-phone {
+    align-self: center;
+    margin-right: 2px;
+
+    &_off {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+.mobile-icon {
+    align-self: center;
+    width: 10x;
+    height: 10px;
+    margin-right: 2px;
+}
+
 .mobile-batery {
     align-self: center;
     font-size: 8px;
     margin-left: 5px;
     margin: 0;
+
+    &_red {
+        color: red;
+    }
+
+    &_orange {
+        color: orange;
+    }
 }
 
 .mobile__menu-item {
