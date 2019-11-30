@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mobila_app-landing-page/precache-manifest.d6d4568cd0978d4a396186fccc7ba15c.js"
+  "/mobila_app-landing-page/precache-manifest.430f25b7fe4cd74c6ea6c86e946ba1c3.js"
 );
 
 self.addEventListener('message', (event) => {
