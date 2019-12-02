@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4a6740f97ed20f7ed7d963ce1c200be7",
+    "revision": "576797f82680eae699b7c09f8c606982",
     "url": "/mobila_app-landing-page/index.html"
   },
   {
-    "revision": "b2bcbd868b04773a75d4",
-    "url": "/mobila_app-landing-page/static/css/main.bd2fbb40.chunk.css"
+    "revision": "3bbe1b0a938046c5d7f0",
+    "url": "/mobila_app-landing-page/static/css/main.9e54167f.chunk.css"
   },
   {
     "revision": "43b0111713d9ee449cbf",
     "url": "/mobila_app-landing-page/static/js/2.2d8a1092.chunk.js"
   },
   {
-    "revision": "b2bcbd868b04773a75d4",
+    "revision": "3bbe1b0a938046c5d7f0",
     "url": "/mobila_app-landing-page/static/js/main.4dd1e1a0.chunk.js"
   },
   {
