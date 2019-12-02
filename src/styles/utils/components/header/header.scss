@@ -197,17 +197,24 @@
   .link-on-loader__apple-mobile {
     margin-bottom: 10px;
   }
-
-  .header-left__text {
-    width: 290px;
-  }
 }
 
 @media (max-width: 450px) {
+  .header-left__text {
+    width: 100%;
+  }
+
   .link-on-loader__header-mobile {
     width: 300px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 319px) {
+  .header-left__title {
+    text-align: left;
   }
 }
